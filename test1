@@ -1,0 +1,495 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "_PnVVfo1Ehy3",
+    "outputId": "f8542de1-20b8-4812-e050-2bf7fe47a080"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Synset('iodine.n.01')\n",
+      "I\n",
+      "Synset('one.n.01')\n",
+      "I\n",
+      "Synset('i.n.03')\n",
+      "I\n",
+      "Synset('one.s.01')\n",
+      "I\n",
+      "Synset('think.n.01')\n",
+      "think\n",
+      "Synset('think.v.01')\n",
+      "think\n",
+      "Synset('think.v.02')\n",
+      "think\n",
+      "Synset('think.v.03')\n",
+      "think\n",
+      "Synset('remember.v.01')\n",
+      "think\n",
+      "Synset('think.v.05')\n",
+      "think\n",
+      "Synset('think.v.06')\n",
+      "think\n",
+      "Synset('intend.v.01')\n",
+      "think\n",
+      "Synset('think.v.08')\n",
+      "think\n",
+      "Synset('think.v.09')\n",
+      "think\n",
+      "Synset('think.v.10')\n",
+      "think\n",
+      "Synset('think.v.11')\n",
+      "think\n",
+      "Synset('think.v.12')\n",
+      "think\n",
+      "Synset('think.v.13')\n",
+      "think\n",
+      "Synset('information_technology.n.01')\n",
+      "it\n",
+      "Synset('be.v.01')\n",
+      "is\n",
+      "Synset('be.v.02')\n",
+      "is\n",
+      "Synset('be.v.03')\n",
+      "is\n",
+      "Synset('exist.v.01')\n",
+      "is\n",
+      "Synset('be.v.05')\n",
+      "is\n",
+      "Synset('equal.v.01')\n",
+      "is\n",
+      "Synset('constitute.v.01')\n",
+      "is\n",
+      "Synset('be.v.08')\n",
+      "is\n",
+      "Synset('embody.v.02')\n",
+      "is\n",
+      "Synset('be.v.10')\n",
+      "is\n",
+      "Synset('be.v.11')\n",
+      "is\n",
+      "Synset('be.v.12')\n",
+      "is\n",
+      "Synset('cost.v.01')\n",
+      "is\n",
+      "Synset('angstrom.n.01')\n",
+      "a\n",
+      "Synset('vitamin_a.n.01')\n",
+      "a\n",
+      "Synset('deoxyadenosine_monophosphate.n.01')\n",
+      "a\n",
+      "Synset('adenine.n.01')\n",
+      "a\n",
+      "Synset('ampere.n.02')\n",
+      "a\n",
+      "Synset('a.n.06')\n",
+      "a\n",
+      "Synset('a.n.07')\n",
+      "a\n",
+      "Synset('nice.n.01')\n",
+      "nice\n",
+      "Synset('nice.a.01')\n",
+      "nice\n",
+      "Synset('decent.s.01')\n",
+      "nice\n",
+      "Synset('nice.s.03')\n",
+      "nice\n",
+      "Synset('dainty.s.04')\n",
+      "nice\n",
+      "Synset('courteous.s.01')\n",
+      "nice\n",
+      "Synset('cat.n.01')\n",
+      "cat\n",
+      "Synset('guy.n.01')\n",
+      "cat\n",
+      "Synset('cat.n.03')\n",
+      "cat\n",
+      "Synset('kat.n.01')\n",
+      "cat\n",
+      "Synset('cat-o'-nine-tails.n.01')\n",
+      "cat\n",
+      "Synset('caterpillar.n.02')\n",
+      "cat\n",
+      "Synset('big_cat.n.01')\n",
+      "cat\n",
+      "Synset('computerized_tomography.n.01')\n",
+      "cat\n",
+      "Synset('cat.v.01')\n",
+      "cat\n",
+      "Synset('vomit.v.01')\n",
+      "cat\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "[nltk_data] Downloading package punkt to /home/dav/nltk_data...\n",
+      "[nltk_data]   Package punkt is already up-to-date!\n",
+      "[nltk_data] Downloading package wordnet to /home/dav/nltk_data...\n",
+      "[nltk_data]   Package wordnet is already up-to-date!\n",
+      "[nltk_data] Downloading package omw-1.4 to /home/dav/nltk_data...\n",
+      "[nltk_data]   Package omw-1.4 is already up-to-date!\n"
+     ]
+    }
+   ],
+   "source": [
+    "#ТЕСТ\n",
+    "import nltk\n",
+    "nltk.download('punkt')\n",
+    "nltk.download('wordnet')\n",
+    "nltk.download('omw-1.4')\n",
+    "from nltk.tokenize import word_tokenize\n",
+    "from nltk.corpus import wordnet as wn\n",
+    "text = \"I think, it is a nice cat.\"\n",
+    "tokens = word_tokenize(text)\n",
+    "for token in tokens:\n",
+    "   for i in wn.synsets(token):\n",
+    "      print (i)\n",
+    "      print (token)\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "H0l69dhQElVt",
+    "outputId": "ff6f5d2c-d3ac-4257-f39a-1d631b045a66"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "think 5\n",
+      "it 2\n",
+      "is 2\n",
+      "nice 4\n",
+      "cat 3\n"
+     ]
+    }
+   ],
+   "source": [
+    "for token in tokens:\n",
+    "   if len(token) > 1:\n",
+    "      print(token,len(token))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "etk2niMCEtG-",
+    "outputId": "22204b33-1bcd-4812-e743-d834c8e99330"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I\n",
+      "think\n",
+      "it\n",
+      "a\n",
+      "nice\n",
+      "cat\n",
+      "----------------------------------------------------------------------\n",
+      "think\n",
+      "is\n",
+      "cat\n"
+     ]
+    }
+   ],
+   "source": [
+    "for token in tokens:\n",
+    "   if len(wn.synsets(token, pos= wn.NOUN)):\n",
+    "      print(token)\n",
+    "print('-'*70)\n",
+    "for token in tokens:\n",
+    "   if len(wn.synsets(token, pos= wn.VERB)):\n",
+    "      print(token)\n",
+    "     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "m1KsbsMwWtRv",
+    "outputId": "0a290b20-75b7-4688-a221-7a7aff6185c9"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I NOUN\n",
+      "think NOUN\n",
+      "think VERB\n",
+      "it NOUN\n",
+      "is VERB\n",
+      "a NOUN\n",
+      "nice NOUN\n",
+      "cat NOUN\n",
+      "cat VERB\n"
+     ]
+    }
+   ],
+   "source": [
+    "for token in tokens:\n",
+    "   if len(wn.synsets(token, pos= wn.NOUN)):\n",
+    "      print(token,'NOUN')\n",
+    "   if len(wn.synsets(token, pos= wn.VERB)):\n",
+    "      print(token,'VERB')\n",
+    "     "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "UlrDA3gHaZTr",
+    "outputId": "2a00ef88-257b-447a-d0bf-c3688af2882f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I Synset('iodine.n.01') iodine.n.01 a nonmetallic element belonging to the halogens; used especially in medicine and photography and in dyes; occurs naturally only in combination in small quantities (as in sea water or rocks)\n",
+      "lemmas <bound method Synset.lemmas of Synset('iodine.n.01')>\n",
+      "I Synset('one.n.01') one.n.01 the smallest whole number or a numeral representing this number\n",
+      "lemmas <bound method Synset.lemmas of Synset('one.n.01')>\n",
+      "I Synset('i.n.03') i.n.03 the 9th letter of the Roman alphabet\n",
+      "lemmas <bound method Synset.lemmas of Synset('i.n.03')>\n",
+      "I Synset('one.s.01') one.s.01 used of a single unit or thing; not two or more\n",
+      "lemmas <bound method Synset.lemmas of Synset('one.s.01')>\n",
+      "think Synset('think.n.01') think.n.01 an instance of deliberate thinking\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.n.01')>\n",
+      "think Synset('think.v.01') think.v.01 judge or regard; look upon; judge\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.01')>\n",
+      "think Synset('think.v.02') think.v.02 expect, believe, or suppose\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.02')>\n",
+      "think Synset('think.v.03') think.v.03 use or exercise the mind or one's power of reason in order to make inferences, decisions, or arrive at a solution or judgments\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.03')>\n",
+      "think Synset('remember.v.01') remember.v.01 recall knowledge from memory; have a recollection\n",
+      "lemmas <bound method Synset.lemmas of Synset('remember.v.01')>\n",
+      "think Synset('think.v.05') think.v.05 imagine or visualize\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.05')>\n",
+      "think Synset('think.v.06') think.v.06 focus one's attention on a certain state\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.06')>\n",
+      "think Synset('intend.v.01') intend.v.01 have in mind as a purpose\n",
+      "lemmas <bound method Synset.lemmas of Synset('intend.v.01')>\n",
+      "think Synset('think.v.08') think.v.08 decide by pondering, reasoning, or reflecting\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.08')>\n",
+      "think Synset('think.v.09') think.v.09 ponder; reflect on, or reason about\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.09')>\n",
+      "think Synset('think.v.10') think.v.10 dispose the mind in a certain way\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.10')>\n",
+      "think Synset('think.v.11') think.v.11 have or formulate in the mind\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.11')>\n",
+      "think Synset('think.v.12') think.v.12 be capable of conscious thought\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.12')>\n",
+      "think Synset('think.v.13') think.v.13 bring into a given condition by mental preoccupation\n",
+      "lemmas <bound method Synset.lemmas of Synset('think.v.13')>\n",
+      "it Synset('information_technology.n.01') information_technology.n.01 the branch of engineering that deals with the use of computers and telecommunications to retrieve and store and transmit information\n",
+      "lemmas <bound method Synset.lemmas of Synset('information_technology.n.01')>\n",
+      "is Synset('be.v.01') be.v.01 have the quality of being; (copula, used with an adjective or a predicate noun)\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.01')>\n",
+      "is Synset('be.v.02') be.v.02 be identical to; be someone or something\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.02')>\n",
+      "is Synset('be.v.03') be.v.03 occupy a certain position or area; be somewhere\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.03')>\n",
+      "is Synset('exist.v.01') exist.v.01 have an existence, be extant\n",
+      "lemmas <bound method Synset.lemmas of Synset('exist.v.01')>\n",
+      "is Synset('be.v.05') be.v.05 happen, occur, take place\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.05')>\n",
+      "is Synset('equal.v.01') equal.v.01 be identical or equivalent to\n",
+      "lemmas <bound method Synset.lemmas of Synset('equal.v.01')>\n",
+      "is Synset('constitute.v.01') constitute.v.01 form or compose\n",
+      "lemmas <bound method Synset.lemmas of Synset('constitute.v.01')>\n",
+      "is Synset('be.v.08') be.v.08 work in a specific place, with a specific subject, or in a specific function\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.08')>\n",
+      "is Synset('embody.v.02') embody.v.02 represent, as of a character on stage\n",
+      "lemmas <bound method Synset.lemmas of Synset('embody.v.02')>\n",
+      "is Synset('be.v.10') be.v.10 spend or use time\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.10')>\n",
+      "is Synset('be.v.11') be.v.11 have life, be alive\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.11')>\n",
+      "is Synset('be.v.12') be.v.12 to remain unmolested, undisturbed, or uninterrupted -- used only in infinitive form\n",
+      "lemmas <bound method Synset.lemmas of Synset('be.v.12')>\n",
+      "is Synset('cost.v.01') cost.v.01 be priced at\n",
+      "lemmas <bound method Synset.lemmas of Synset('cost.v.01')>\n",
+      "a Synset('angstrom.n.01') angstrom.n.01 a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron); used to specify wavelengths of electromagnetic radiation\n",
+      "lemmas <bound method Synset.lemmas of Synset('angstrom.n.01')>\n",
+      "a Synset('vitamin_a.n.01') vitamin_a.n.01 any of several fat-soluble vitamins essential for normal vision; prevents night blindness or inflammation or dryness of the eyes\n",
+      "lemmas <bound method Synset.lemmas of Synset('vitamin_a.n.01')>\n",
+      "a Synset('deoxyadenosine_monophosphate.n.01') deoxyadenosine_monophosphate.n.01 one of the four nucleotides used in building DNA; all four nucleotides have a common phosphate group and a sugar (ribose)\n",
+      "lemmas <bound method Synset.lemmas of Synset('deoxyadenosine_monophosphate.n.01')>\n",
+      "a Synset('adenine.n.01') adenine.n.01 (biochemistry) purine base found in DNA and RNA; pairs with thymine in DNA and with uracil in RNA\n",
+      "lemmas <bound method Synset.lemmas of Synset('adenine.n.01')>\n",
+      "a Synset('ampere.n.02') ampere.n.02 the basic unit of electric current adopted under the Systeme International d'Unites\n",
+      "lemmas <bound method Synset.lemmas of Synset('ampere.n.02')>\n",
+      "a Synset('a.n.06') a.n.06 the 1st letter of the Roman alphabet\n",
+      "lemmas <bound method Synset.lemmas of Synset('a.n.06')>\n",
+      "a Synset('a.n.07') a.n.07 the blood group whose red cells carry the A antigen\n",
+      "lemmas <bound method Synset.lemmas of Synset('a.n.07')>\n",
+      "nice Synset('nice.n.01') nice.n.01 a city in southeastern France on the Mediterranean; the leading resort on the French Riviera\n",
+      "lemmas <bound method Synset.lemmas of Synset('nice.n.01')>\n",
+      "nice Synset('nice.a.01') nice.a.01 pleasant or pleasing or agreeable in nature or appearance; - George Meredith\n",
+      "lemmas <bound method Synset.lemmas of Synset('nice.a.01')>\n",
+      "nice Synset('decent.s.01') decent.s.01 socially or conventionally correct; refined or virtuous\n",
+      "lemmas <bound method Synset.lemmas of Synset('decent.s.01')>\n",
+      "nice Synset('nice.s.03') nice.s.03 done with delicacy and skill\n",
+      "lemmas <bound method Synset.lemmas of Synset('nice.s.03')>\n",
+      "nice Synset('dainty.s.04') dainty.s.04 excessively fastidious and easily disgusted\n",
+      "lemmas <bound method Synset.lemmas of Synset('dainty.s.04')>\n",
+      "nice Synset('courteous.s.01') courteous.s.01 exhibiting courtesy and politeness\n",
+      "lemmas <bound method Synset.lemmas of Synset('courteous.s.01')>\n",
+      "cat Synset('cat.n.01') cat.n.01 feline mammal usually having thick soft fur and no ability to roar: domestic cats; wildcats\n",
+      "lemmas <bound method Synset.lemmas of Synset('cat.n.01')>\n",
+      "cat Synset('guy.n.01') guy.n.01 an informal term for a youth or man\n",
+      "lemmas <bound method Synset.lemmas of Synset('guy.n.01')>\n",
+      "cat Synset('cat.n.03') cat.n.03 a spiteful woman gossip\n",
+      "lemmas <bound method Synset.lemmas of Synset('cat.n.03')>\n",
+      "cat Synset('kat.n.01') kat.n.01 the leaves of the shrub Catha edulis which are chewed like tobacco or used to make tea; has the effect of a euphoric stimulant\n",
+      "lemmas <bound method Synset.lemmas of Synset('kat.n.01')>\n",
+      "cat Synset('cat-o'-nine-tails.n.01') cat-o'-nine-tails.n.01 a whip with nine knotted cords\n",
+      "lemmas <bound method Synset.lemmas of Synset('cat-o'-nine-tails.n.01')>\n",
+      "cat Synset('caterpillar.n.02') caterpillar.n.02 a large tracked vehicle that is propelled by two endless metal belts; frequently used for moving earth in construction and farm work\n",
+      "lemmas <bound method Synset.lemmas of Synset('caterpillar.n.02')>\n",
+      "cat Synset('big_cat.n.01') big_cat.n.01 any of several large cats typically able to roar and living in the wild\n",
+      "lemmas <bound method Synset.lemmas of Synset('big_cat.n.01')>\n",
+      "cat Synset('computerized_tomography.n.01') computerized_tomography.n.01 a method of examining body organs by scanning them with X rays and using a computer to construct a series of cross-sectional scans along a single axis\n",
+      "lemmas <bound method Synset.lemmas of Synset('computerized_tomography.n.01')>\n",
+      "cat Synset('cat.v.01') cat.v.01 beat with a cat-o'-nine-tails\n",
+      "lemmas <bound method Synset.lemmas of Synset('cat.v.01')>\n",
+      "cat Synset('vomit.v.01') vomit.v.01 eject the contents of the stomach through the mouth\n",
+      "lemmas <bound method Synset.lemmas of Synset('vomit.v.01')>\n"
+     ]
+    }
+   ],
+   "source": [
+    "for token in tokens:\n",
+    "  for s in wn.synsets(token):\n",
+    "    print (token,s,s.name(),s.definition())\n",
+    "    print('lemmas',wn.synset(s.name()).lemmas)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "MxSOjeqkjJy1",
+    "outputId": "6bfce9f6-7639-438b-d7d2-599a13e8a246"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]\n",
+      "[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]\n",
+      "[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]\n",
+      "[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]\n",
+      "[Synset('iodine.n.01'), Synset('one.n.01'), Synset('i.n.03')]\n",
+      "[Synset('think.n.01')]\n",
+      "[Synset('think.n.01')]\n",
+      "[Synset('think.n.01')]\n",
+      "[Synset('think.n.01')]\n",
+      "[Synset('information_technology.n.01')]\n",
+      "[Synset('information_technology.n.01')]\n",
+      "[Synset('information_technology.n.01')]\n",
+      "[Synset('angstrom.n.01'), Synset('vitamin_a.n.01'), Synset('deoxyadenosine_monophosphate.n.01'), Synset('adenine.n.01'), Synset('ampere.n.02'), Synset('a.n.06'), Synset('a.n.07')]\n",
+      "[Synset('angstrom.n.01'), Synset('vitamin_a.n.01'), Synset('deoxyadenosine_monophosphate.n.01'), Synset('adenine.n.01'), Synset('ampere.n.02'), Synset('a.n.06'), Synset('a.n.07')]\n",
+      "[Synset('nice.n.01')]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#5\n",
+    "mouns = []\n",
+    "for token in tokens:\n",
+    "   if len(wn.synsets(token, pos= wn.NOUN)):\n",
+    "      mouns.append(token)\n",
+    "\n",
+    "for index1,moun1 in enumerate(mouns):\n",
+    "  for index2,moun2 in enumerate(mouns):\n",
+    "    if moun1 != moun2 and index2 > index1:\n",
+    "      print(wn.synsets(moun1, pos= wn.NOUN))\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "N71FNBLf3PYQ",
+    "outputId": "13d33626-a8a4-4510-acc1-b2d1213244ca"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[Synset('dog.n.01'), Synset('frump.n.01'), Synset('dog.n.03'), Synset('cad.n.01'), Synset('frank.n.02'), Synset('pawl.n.01'), Synset('andiron.n.01'), Synset('chase.v.01')]\n"
+     ]
+    }
+   ],
+   "source": [
+    " print(wn.synsets('dog'))"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
